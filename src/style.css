@@ -32,6 +32,39 @@ li{
     line-height: 16px;
     font-weight: 100;
     line-height: 19px;
-    v
 
+}
+
+.overview{
+    margin-bottom: 25px;
+
+}
+
+.weather-temperature img{
+    margin-right: 10px;
+    height: 64px;
+    width: 64px;
+
+
+}
+
+.weather-temperature .number {
+    color: rgb(33, 33, 33);
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1;
+
+
+}
+
+.weather-temperature .units{
+    position: relative;
+    font-size: 18px;
+    top: -32px;
+
+
+}
+
+.weather-temperature .units, a{
+    text-decoration: none;    
 }
