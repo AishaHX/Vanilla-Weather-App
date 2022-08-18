@@ -1,5 +1,6 @@
 let apiKey = "bf6121cece74278e35e51abbf2e34625";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Stockholm&appid=${apiKey}&units=metric`;
+let city = "lisbon";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 
 //Date and time
@@ -45,7 +46,8 @@ function formatDate (timestamp){
 // Temperature
 function displayTemperature (response){
     //console.log(response.data.name); , findig out wich elemnt to target on the object
-    console.log(response.data.wind);
+    console.log(response.data);
+
     
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML =  Math.round( response.data.main.temp)
@@ -66,6 +68,13 @@ function displayTemperature (response){
     // Date and time
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+    // changing the img icon attribute
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+    //changing alt to description
+    iconElement.setAttribute("alt" ,response.data.weather[0].description);
     
     
 }
