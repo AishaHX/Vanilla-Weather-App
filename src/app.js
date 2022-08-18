@@ -1,7 +1,7 @@
-let apiKey = "bf6121cece74278e35e51abbf2e34625";
+/**let apiKey = "bf6121cece74278e35e51abbf2e34625";
 let city = "lisbon";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
+*/
 
 //Date and time
 
@@ -78,5 +78,32 @@ function displayTemperature (response){
     
     
 }
+// function for Search getting api and displaying the temperature
+function search (city){
+  let apiKey = "bf6121cece74278e35e51abbf2e34625";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
 
-axios.get(apiUrl).then(displayTemperature);
+ 
+
+}
+
+
+// function handling the submit btn
+function hadleSubmit (event){
+    event.preventDefault();
+    let cityElement = document.querySelector("#city-input");
+    //calling the search function and passing with typed value 
+    search(cityElement.value);
+
+
+  
+    
+
+
+} //end fucn search
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit" ,hadleSubmit);
+
+
