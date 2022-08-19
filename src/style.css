@@ -85,3 +85,34 @@ li::first-letter{
 .weather-app{
     background:radial-gradient(321px at 8.3% 75.7%, rgb(209, 247, 241) 0%, rgb(249, 213, 213) 81%);
 }
+
+/** Forecast Plan 
+# To add HTML and Css for forecast
+# To add the API call to get the forecast
+# To replace the dummy content
+
+*/
+
+.weather-forecast{
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+ 
+
+}
+
+.weather-forecast-date{
+    font-size: 16px;
+    opacity: 0.5;
+   
+
+}
+
+.weather-forecast-temperature{
+    font-size: 13px;
+}
+
+.weather-forecast-temperature-mini{
+    opacity: 0.5;
+
+}

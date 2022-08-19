@@ -100,14 +100,7 @@ function hadleSubmit (event){
     search(cityElement.value);
 
 
-  
-    
-
-
 } //end fucn search
-
-
-
 
 
 function displayFahrenheitTemperature (event){
