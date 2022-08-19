@@ -81,3 +81,7 @@ li::first-letter{
    text-decoration: none;
 
 }
+
+.weather-app{
+    background:radial-gradient(321px at 8.3% 75.7%, rgb(209, 247, 241) 0%, rgb(249, 213, 213) 81%);
+}
