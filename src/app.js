@@ -142,4 +142,46 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let celsiusTemperature = null;
 
+
+// Weather Forecast 
+
+function displayForecast (){
+    let forecastElement = document.querySelector("#forecast");
+ 
+    let forecastHTML = `<div class ="row">`;
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday" , "Thursday", "Friday", "Saturday"];
+    days.forEach(function(day) {
+        forecastHTML = forecastHTML + 
+    `  
+    <div class="col-2">
+        <div class="weather-forecast-date">
+        ${day}
+    </div> <!--end date-->
+   
+        <img src="https://ssl.gstatic.com/onebox/weather/48/thunderstorms.png" alt="" width="32">
+        <div class="weather-forecast-temperature"> 
+            <span class="weather-forecast-temperature-maxi"> 
+                32°
+    </span>
+    <span class="weather-forecast-temperature-mini"> 
+        18°
+    </span>
+    </div> <!--end col-->
+</div> <!--end row-->`
+; 
+});
+
+forecastHTML = forecastHTML +`</div>`;
+forecastElement.innerHTML = forecastHTML;
+
+  
+
+    
+
+
+}
+
+
+
 search("stockholm");
+displayForecast();
