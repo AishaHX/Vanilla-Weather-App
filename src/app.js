@@ -42,6 +42,32 @@ function formatDate (timestamp){
 
 
 }
+
+function formatDay (timestamp){
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed" , "Thur", "Fri", "Sat"];
+    return(days[day]);
+
+    
+} //end formaDay
+
+
+
+
+
+// function gets forecast
+function getForecast(coordinates){
+    console.log(coordinates);
+
+    let apiKey = "bf6121cece74278e35e51abbf2e34625";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+   // console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+
+     
+
+}
  
 // Temperature
 function displayTemperature (response){
@@ -72,15 +98,24 @@ function displayTemperature (response){
 
     // changing the img icon attribute
     let iconElement = document.querySelector("#icon");
-    iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    /*iconElement.setAttribute(
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`*/
+        iconElement.setAttribute(
+            "src",
+            `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
     //changing alt to description
-    iconElement.setAttribute("alt" ,response.data.weather[0].description);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
+
+    console.log(response.data);
 
     
-    
+    getForecast(response.data.coord);
+
     
 }
+
 // function for Search getting api and displaying the temperature
 function search (city){
   let apiKey = "bf6121cece74278e35e51abbf2e34625";
@@ -145,30 +180,45 @@ let celsiusTemperature = null;
 
 // Weather Forecast 
 
-function displayForecast (){
+function displayForecast (response){
+    let forecastV = response.data.daily;
+   
+
     let forecastElement = document.querySelector("#forecast");
  
     let forecastHTML = `<div class ="row">`;
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday" , "Thursday", "Friday", "Saturday"];
-    days.forEach(function(day) {
+    //let days = ["Sunday", "Monday", "Tuesday", "Wednesday" , "Thursday", "Friday", "Saturday"];
+
+    forecastV.forEach(function(forecastDay, index) {
+        if (index < 7) {
         forecastHTML = forecastHTML + 
     `  
     <div class="col-2">
         <div class="weather-forecast-date">
-        ${day}
+        ${formatDay(forecastDay.dt)}
     </div> <!--end date-->
    
-        <img src="https://ssl.gstatic.com/onebox/weather/48/thunderstorms.png" alt="" width="32">
-        <div class="weather-forecast-temperature"> 
-            <span class="weather-forecast-temperature-maxi"> 
-                32°
+    <img
+    src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png"
+    alt=""
+    width="42"
+  />
+
+ <div class="weather-forecast-temperature"> 
+        
+
+
+            <span class="weather-forecast-temperature-maxi">${Math.round(forecastDay.temp.max)}°
+             
     </span>
-    <span class="weather-forecast-temperature-mini"> 
-        18°
+    <span class="weather-forecast-temperature-mini">${Math.round(forecastDay.temp.min)}°
     </span>
     </div> <!--end col-->
 </div> <!--end row-->`
 ; 
+    }
 });
 
 forecastHTML = forecastHTML +`</div>`;
