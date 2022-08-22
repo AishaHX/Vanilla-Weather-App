@@ -1,20 +1,19 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
-/*
-*#576F72;
- #A5C9CA
-#A5C9CA
+    background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
 
-*/
+
+}
 .container{
     /*background-color:#90C8AC ;*/
     background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 
 
-    ;
+    padding: 4px;
+    margin:30px auto;
+    width: 650px;
 
-    padding: 10px;
+
 
 
 }
@@ -25,6 +24,9 @@ body{
     padding: 70px;
     border: 1px solid #dadde1;
     border-radius: 7px;
+   background:radial-gradient(321px at 8.3% 75.7%, rgb(209, 247, 241) 0%, rgb(249, 213, 213) 81%);
+   /* background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);*/
+
 
 }
 
@@ -108,9 +110,7 @@ li::first-letter{
 
 }
 
-.weather-app{
-    background:radial-gradient(321px at 8.3% 75.7%, rgb(209, 247, 241) 0%, rgb(249, 213, 213) 81%);
-}
+
 
 /** Forecast Plan 
 # To add HTML and Css for forecast
