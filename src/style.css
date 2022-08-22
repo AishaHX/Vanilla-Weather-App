@@ -3,10 +3,17 @@ body{
 }
 /*
 *#576F72;
+ #A5C9CA
+#A5C9CA
 
 */
 .container{
-    background-color: #A5C9CA;
+    /*background-color:#90C8AC ;*/
+    background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+
+
+    ;
+
     padding: 10px;
 
 
