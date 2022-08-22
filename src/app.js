@@ -190,7 +190,7 @@ function displayForecast (response){
     //let days = ["Sunday", "Monday", "Tuesday", "Wednesday" , "Thursday", "Friday", "Saturday"];
 
     forecastV.forEach(function(forecastDay, index) {
-        if (index < 7) {
+        if (index < 6) {
         forecastHTML = forecastHTML + 
     `  
     <div class="col-2">
