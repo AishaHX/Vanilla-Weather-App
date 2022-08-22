@@ -1,7 +1,4 @@
-/**let apiKey = "bf6121cece74278e35e51abbf2e34625";
-let city = "lisbon";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-*/
+
 
 //Date and time
 
